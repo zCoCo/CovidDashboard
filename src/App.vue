@@ -1,31 +1,62 @@
 <template>
   <div id="app">
-    <div id="nav">
-      | <router-link to="/">Home</router-link> |
+    <div class="head">
+      <div class="title">
+        <h1>RONA Dashboard</h1>
+        <h4>Rapid Online Novelcoronavirus Analysis Dashboard</h4>
+      </div>
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/dashboard">Dashboard</router-link> |
+        <router-link to="/sandbox">Sandbox</router-link>
+      </div>
     </div>
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Map from '@/components/Map.vue'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  name: 'App',
+  created(){
+    console.log("To any future employers or code scavengers: I'm sorry. I don't have much time so this isn't my best work, or even particularly well crafted 😭. I promise I don't normally push to production.");
   }
 }
+</script>
+<style lang="scss">
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+  }
+
+  .head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 2rem;
+
+    &h1 {
+      font-weight: bold;
+    }
+  }
+
+  #nav {
+    text-align: center;
+    padding: 1rem;
+
+    a {
+      font-weight: bold;
+      color: #2c3e50;
+
+      &.router-link-exact-active {
+        color: #42b983;
+      }
+    }
+  }
 </style>
