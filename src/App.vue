@@ -12,6 +12,9 @@
       </div>
     </div>
     <router-view/>
+    <footer>
+      DISCLAIMER: This tool and all data in it is for educational purposes only and is provided for free without any waranty or guarantee. The accuracy, recency, fidelity, and trustworthy of this data cannot independently verified or guaranteed by the developer. See the <b>Data Sources</b> page for information on the data sources used.
+    </footer>
   </div>
 </template>
 

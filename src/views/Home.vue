@@ -4,8 +4,8 @@
       :geoData="activeMap"
       :coreData="activeData"
       :value="{
-        key: 'deaths',
-        metric: ' Confirmed Deaths'
+        key: 'deaths_per_cap',
+        metric: ' Confirmed Deaths per 1M People'
       }"
     />
   </div>
@@ -56,13 +56,24 @@ export default {
     }
   },
   created(){
+    this.dataset = RegionalizedData.loadFromOnline();
+    /*
     console.log("Loading Geographic and Census Data . . .");
     this.loadGeoData();
     console.log("Loading Covid Data . . .");
-    this.loadCovidData();
+    this.loadCovidData();*/
   },
 
   methods: {
+
+    choroplethData(){
+      this.dataset.map( region => {
+        let data = {fips: string(region.data.fips)};
+        data[this.choropleth_value] = region.data[choropleth_value][day_num-region.day_zero];
+        return data;
+      });
+    }
+
     // Does what it says on the tin (loads geographic and census data).
     loadGeoData(){
       // Load County Data:
